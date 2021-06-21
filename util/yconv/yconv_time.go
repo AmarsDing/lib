@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/AmarsDing/lib/internal/utils"
-	"github.com/AmarsDing/lib/os/gtime"
+	"github.com/gogf/gf/os/gtime"
 )
 
 // Time converts `any` to time.Time.

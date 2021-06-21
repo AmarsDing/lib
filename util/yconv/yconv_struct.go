@@ -11,10 +11,10 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/AmarsDing/lib/errors/gerror"
 	"github.com/AmarsDing/lib/internal/empty"
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/internal/structs"
+	"github.com/gogf/gf/errors/gerror"
 
 	"github.com/AmarsDing/lib/internal/utils"
 )

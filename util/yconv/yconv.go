@@ -10,8 +10,7 @@ import (
 
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/os/gtime"
-
-	"github.com/AmarsDing/lib/encoding/gbinary"
+	"github.com/gogf/gf/encoding/gbinary"
 )
 
 type (

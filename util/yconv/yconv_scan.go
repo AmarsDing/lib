@@ -7,8 +7,9 @@
 package yconv
 
 import (
-	"github.com/AmarsDing/lib/errors/gerror"
 	"reflect"
+
+	"github.com/AmarsDing/lib/errors/gerror"
 )
 
 // Scan automatically calls MapToMap, MapToMaps, Struct or Structs function according to
