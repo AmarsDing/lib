@@ -1,10 +1,10 @@
-
 package ytype
 
 import (
 	"bytes"
-	"github.com/AmarsDing/util/yconv"
 	"sync/atomic"
+
+	"github.com/AmarsDing/util/yconv"
 )
 
 // Bool is a struct for concurrent-safe operation for type bool.

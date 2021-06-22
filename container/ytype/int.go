@@ -1,15 +1,10 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
-package gtype
+package ytype
 
 import (
-	"github.com/gogf/gf/util/gconv"
 	"strconv"
 	"sync/atomic"
+
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Int is a struct for concurrent-safe operation for type int.
@@ -60,17 +55,17 @@ func (v *Int) String() string {
 
 // MarshalJSON implements the interface MarshalJSON for json.Marshal.
 func (v *Int) MarshalJSON() ([]byte, error) {
-	return gconv.UnsafeStrToBytes(strconv.Itoa(v.Val())), nil
+	return yconv.UnsafeStrToBytes(strconv.Itoa(v.Val())), nil
 }
 
 // UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 func (v *Int) UnmarshalJSON(b []byte) error {
-	v.Set(gconv.Int(gconv.UnsafeBytesToStr(b)))
+	v.Set(yconv.Int(yconv.UnsafeBytesToStr(b)))
 	return nil
 }
 
 // UnmarshalValue is an interface implement which sets any type of value for <v>.
 func (v *Int) UnmarshalValue(value interface{}) error {
-	v.Set(gconv.Int(value))
+	v.Set(yconv.Int(value))
 	return nil
 }

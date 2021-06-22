@@ -1,56 +1,50 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
+package yvar
 
-package gvar
-
-import "github.com/gogf/gf/util/gconv"
+import "github.com/AmarsDing/lib/util/yconv"
 
 // Ints converts and returns <v> as []int.
 func (v *Var) Ints() []int {
-	return gconv.Ints(v.Val())
+	return yconv.Ints(v.Val())
 }
 
 // Int64s converts and returns <v> as []int64.
 func (v *Var) Int64s() []int64 {
-	return gconv.Int64s(v.Val())
+	return yconv.Int64s(v.Val())
 }
 
 // Uints converts and returns <v> as []uint.
 func (v *Var) Uints() []uint {
-	return gconv.Uints(v.Val())
+	return yconv.Uints(v.Val())
 }
 
 // Uint64s converts and returns <v> as []uint64.
 func (v *Var) Uint64s() []uint64 {
-	return gconv.Uint64s(v.Val())
+	return yconv.Uint64s(v.Val())
 }
 
 // Floats is alias of Float64s.
 func (v *Var) Floats() []float64 {
-	return gconv.Floats(v.Val())
+	return yconv.Floats(v.Val())
 }
 
 // Float32s converts and returns <v> as []float32.
 func (v *Var) Float32s() []float32 {
-	return gconv.Float32s(v.Val())
+	return yconv.Float32s(v.Val())
 }
 
 // Float64s converts and returns <v> as []float64.
 func (v *Var) Float64s() []float64 {
-	return gconv.Float64s(v.Val())
+	return yconv.Float64s(v.Val())
 }
 
 // Strings converts and returns <v> as []string.
 func (v *Var) Strings() []string {
-	return gconv.Strings(v.Val())
+	return yconv.Strings(v.Val())
 }
 
 // Interfaces converts and returns <v> as []interfaces{}.
 func (v *Var) Interfaces() []interface{} {
-	return gconv.Interfaces(v.Val())
+	return yconv.Interfaces(v.Val())
 }
 
 // Slice is alias of Interfaces.
@@ -65,7 +59,7 @@ func (v *Var) Array() []interface{} {
 
 // Vars converts and returns <v> as []Var.
 func (v *Var) Vars() []*Var {
-	array := gconv.Interfaces(v.Val())
+	array := yconv.Interfaces(v.Val())
 	if len(array) == 0 {
 		return nil
 	}

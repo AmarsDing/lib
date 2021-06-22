@@ -1,14 +1,8 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
-package gtype
+package ytype
 
 import (
 	"bytes"
-	"github.com/gogf/gf/util/gconv"
+	"github.com/AmarsDing/lib/util/yconv"
 	"sync/atomic"
 )
 
@@ -55,17 +49,17 @@ func (v *String) String() string {
 
 // MarshalJSON implements the interface MarshalJSON for json.Marshal.
 func (v *String) MarshalJSON() ([]byte, error) {
-	return gconv.UnsafeStrToBytes(`"` + v.Val() + `"`), nil
+	return yconv.UnsafeStrToBytes(`"` + v.Val() + `"`), nil
 }
 
 // UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 func (v *String) UnmarshalJSON(b []byte) error {
-	v.Set(gconv.UnsafeBytesToStr(bytes.Trim(b, `"`)))
+	v.Set(yconv.UnsafeBytesToStr(bytes.Trim(b, `"`)))
 	return nil
 }
 
 // UnmarshalValue is an interface implement which sets any type of value for <v>.
 func (v *String) UnmarshalValue(value interface{}) error {
-	v.Set(gconv.String(value))
+	v.Set(yconv.String(value))
 	return nil
 }

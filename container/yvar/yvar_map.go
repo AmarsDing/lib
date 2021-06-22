@@ -4,13 +4,13 @@
 // If a copy of the MIT was not distributed with this file,
 // You can obtain one at https://github.com/gogf/gf.
 
-package gvar
+package yvar
 
-import "github.com/gogf/gf/util/gconv"
+import "github.com/AmarsDing/lib/util/yconv"
 
 // Map converts and returns <v> as map[string]interface{}.
 func (v *Var) Map(tags ...string) map[string]interface{} {
-	return gconv.Map(v.Val(), tags...)
+	return yconv.Map(v.Val(), tags...)
 }
 
 // MapStrAny is like function Map, but implements the interface of MapStrAny.
@@ -20,7 +20,7 @@ func (v *Var) MapStrAny() map[string]interface{} {
 
 // MapStrStr converts and returns <v> as map[string]string.
 func (v *Var) MapStrStr(tags ...string) map[string]string {
-	return gconv.MapStrStr(v.Val(), tags...)
+	return yconv.MapStrStr(v.Val(), tags...)
 }
 
 // MapStrVar converts and returns <v> as map[string]Var.
@@ -38,12 +38,12 @@ func (v *Var) MapStrVar(tags ...string) map[string]*Var {
 
 // MapDeep converts and returns <v> as map[string]interface{} recursively.
 func (v *Var) MapDeep(tags ...string) map[string]interface{} {
-	return gconv.MapDeep(v.Val(), tags...)
+	return yconv.MapDeep(v.Val(), tags...)
 }
 
 // MapDeep converts and returns <v> as map[string]string recursively.
 func (v *Var) MapStrStrDeep(tags ...string) map[string]string {
-	return gconv.MapStrStrDeep(v.Val(), tags...)
+	return yconv.MapStrStrDeep(v.Val(), tags...)
 }
 
 // MapStrVarDeep converts and returns <v> as map[string]*Var recursively.
@@ -60,26 +60,26 @@ func (v *Var) MapStrVarDeep(tags ...string) map[string]*Var {
 }
 
 // Maps converts and returns <v> as map[string]string.
-// See gconv.Maps.
+// See yconv.Maps.
 func (v *Var) Maps(tags ...string) []map[string]interface{} {
-	return gconv.Maps(v.Val(), tags...)
+	return yconv.Maps(v.Val(), tags...)
 }
 
 // MapToMap converts any map type variable <params> to another map type variable <pointer>.
-// See gconv.MapToMap.
+// See yconv.MapToMap.
 func (v *Var) MapToMap(pointer interface{}, mapping ...map[string]string) (err error) {
-	return gconv.MapToMap(v.Val(), pointer, mapping...)
+	return yconv.MapToMap(v.Val(), pointer, mapping...)
 }
 
 // MapToMaps converts any map type variable <params> to another map type variable <pointer>.
-// See gconv.MapToMaps.
+// See yconv.MapToMaps.
 func (v *Var) MapToMaps(pointer interface{}, mapping ...map[string]string) (err error) {
-	return gconv.MapToMaps(v.Val(), pointer, mapping...)
+	return yconv.MapToMaps(v.Val(), pointer, mapping...)
 }
 
 // MapToMapsDeep converts any map type variable <params> to another map type variable
 // <pointer> recursively.
-// See gconv.MapToMapsDeep.
+// See yconv.MapToMapsDeep.
 func (v *Var) MapToMapsDeep(pointer interface{}, mapping ...map[string]string) (err error) {
-	return gconv.MapToMapsDeep(v.Val(), pointer, mapping...)
+	return yconv.MapToMapsDeep(v.Val(), pointer, mapping...)
 }

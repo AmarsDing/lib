@@ -1,17 +1,12 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
-package gtype
+package ytype
 
 import (
-	"github.com/gogf/gf/util/gconv"
 	"math"
 	"strconv"
 	"sync/atomic"
 	"unsafe"
+
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Float64 is a struct for concurrent-safe operation for type float64.
@@ -73,17 +68,17 @@ func (v *Float64) String() string {
 
 // MarshalJSON implements the interface MarshalJSON for json.Marshal.
 func (v *Float64) MarshalJSON() ([]byte, error) {
-	return gconv.UnsafeStrToBytes(strconv.FormatFloat(v.Val(), 'g', -1, 64)), nil
+	return yconv.UnsafeStrToBytes(strconv.FormatFloat(v.Val(), 'g', -1, 64)), nil
 }
 
 // UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 func (v *Float64) UnmarshalJSON(b []byte) error {
-	v.Set(gconv.Float64(gconv.UnsafeBytesToStr(b)))
+	v.Set(yconv.Float64(yconv.UnsafeBytesToStr(b)))
 	return nil
 }
 
 // UnmarshalValue is an interface implement which sets any type of value for <v>.
 func (v *Float64) UnmarshalValue(value interface{}) error {
-	v.Set(gconv.Float64(value))
+	v.Set(yconv.Float64(value))
 	return nil
 }
