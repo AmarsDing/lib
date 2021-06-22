@@ -1,24 +1,18 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
 package yarray
 
 import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/gogf/gf/internal/empty"
-	"github.com/gogf/gf/internal/json"
-	"github.com/gogf/gf/text/gstr"
+	"github.com/AmarsDing/lib/internal/empty"
+	"github.com/AmarsDing/lib/internal/json"
+	"github.com/AmarsDing/lib/text/ystr"
 	"math"
 	"sort"
 
-	"github.com/gogf/gf/internal/rwmutex"
-	"github.com/gogf/gf/util/gconv"
-	"github.com/gogf/gf/util/grand"
+	"github.com/AmarsDing/lib/internal/rwmutex"
+	"github.com/AmarsDing/lib/util/yconv"
+	"github.com/AmarsDing/lib/util/yrand"
 )
 
 // Array is a golang array with rich features.
@@ -156,7 +150,7 @@ func (a *Array) Sum() (sum int) {
 	a.mu.RLock()
 	defer a.mu.RUnlock()
 	for _, v := range a.array {
-		sum += gconv.Int(v)
+		sum += yconv.Int(v)
 	}
 	return
 }
@@ -260,7 +254,7 @@ func (a *Array) PushRight(value ...interface{}) *Array {
 func (a *Array) PopRand() (value interface{}, found bool) {
 	a.mu.Lock()
 	defer a.mu.Unlock()
-	return a.doRemoveWithoutLock(grand.Intn(len(a.array)))
+	return a.doRemoveWithoutLock(yrand.Intn(len(a.array)))
 }
 
 // PopRands randomly pops and returns `size` items out of array.
@@ -275,7 +269,7 @@ func (a *Array) PopRands(size int) []interface{} {
 	}
 	array := make([]interface{}, size)
 	for i := 0; i < size; i++ {
-		array[i], _ = a.doRemoveWithoutLock(grand.Intn(len(a.array)))
+		array[i], _ = a.doRemoveWithoutLock(yrand.Intn(len(a.array)))
 	}
 	return array
 }
@@ -536,7 +530,7 @@ func (a *Array) RLockFunc(f func(array []interface{})) *Array {
 // The difference between Merge and Append is Append supports only specified slice type,
 // but Merge supports more parameter types.
 func (a *Array) Merge(array interface{}) *Array {
-	return a.Append(gconv.Interfaces(array)...)
+	return a.Append(yconv.Interfaces(array)...)
 }
 
 // Fill fills an array with num entries of the value `value`,
@@ -614,7 +608,7 @@ func (a *Array) Rand() (value interface{}, found bool) {
 	if len(a.array) == 0 {
 		return nil, false
 	}
-	return a.array[grand.Intn(len(a.array))], true
+	return a.array[yrand.Intn(len(a.array))], true
 }
 
 // Rands randomly returns `size` items from array(no deleting).
@@ -626,7 +620,7 @@ func (a *Array) Rands(size int) []interface{} {
 	}
 	array := make([]interface{}, size)
 	for i := 0; i < size; i++ {
-		array[i] = a.array[grand.Intn(len(a.array))]
+		array[i] = a.array[yrand.Intn(len(a.array))]
 	}
 	return array
 }
@@ -635,7 +629,7 @@ func (a *Array) Rands(size int) []interface{} {
 func (a *Array) Shuffle() *Array {
 	a.mu.Lock()
 	defer a.mu.Unlock()
-	for i, v := range grand.Perm(len(a.array)) {
+	for i, v := range yrand.Perm(len(a.array)) {
 		a.array[i], a.array[v] = a.array[v], a.array[i]
 	}
 	return a
@@ -660,7 +654,7 @@ func (a *Array) Join(glue string) string {
 	}
 	buffer := bytes.NewBuffer(nil)
 	for k, v := range a.array {
-		buffer.WriteString(gconv.String(v))
+		buffer.WriteString(yconv.String(v))
 		if k != len(a.array)-1 {
 			buffer.WriteString(glue)
 		}
@@ -716,11 +710,11 @@ func (a *Array) String() string {
 	buffer.WriteByte('[')
 	s := ""
 	for k, v := range a.array {
-		s = gconv.String(v)
-		if gstr.IsNumeric(s) {
+		s = yconv.String(v)
+		if ystr.IsNumeric(s) {
 			buffer.WriteString(s)
 		} else {
-			buffer.WriteString(`"` + gstr.QuoteMeta(s, `"\`) + `"`)
+			buffer.WriteString(`"` + ystr.QuoteMeta(s, `"\`) + `"`)
 		}
 		if k != len(a.array)-1 {
 			buffer.WriteByte(',')
@@ -757,9 +751,9 @@ func (a *Array) UnmarshalValue(value interface{}) error {
 	defer a.mu.Unlock()
 	switch value.(type) {
 	case string, []byte:
-		return json.UnmarshalUseNumber(gconv.Bytes(value), &a.array)
+		return json.UnmarshalUseNumber(yconv.Bytes(value), &a.array)
 	default:
-		a.array = gconv.SliceAny(value)
+		a.array = yconv.SliceAny(value)
 	}
 	return nil
 }

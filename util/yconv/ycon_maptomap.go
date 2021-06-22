@@ -9,7 +9,7 @@ package yconv
 import (
 	"reflect"
 
-	"github.com/AmarsDing/lib/errors/gerror"
+	"github.com/AmarsDing/lib/errors/yerror"
 	"github.com/AmarsDing/lib/internal/json"
 )
 
@@ -87,7 +87,7 @@ func doMapToMap(params interface{}, pointer interface{}, mapping ...map[string]s
 		pointerKind = pointerRv.Kind()
 	}
 	if pointerKind != reflect.Map {
-		return gerror.Newf("pointer should be type of *map, but got:%s", pointerKind)
+		return yerror.Newf("pointer should be type of *map, but got:%s", pointerKind)
 	}
 	defer func() {
 		// Catch the panic, especially the reflect operation panics.
@@ -95,7 +95,7 @@ func doMapToMap(params interface{}, pointer interface{}, mapping ...map[string]s
 			if e, ok := exception.(errorStack); ok {
 				err = e
 			} else {
-				err = gerror.NewSkipf(1, "%v", exception)
+				err = yerror.NewSkipf(1, "%v", exception)
 			}
 		}
 	}()

@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/AmarsDing/lib/internal/json"
-	"github.com/AmarsDing/lib/os/gtime"
-	"github.com/gogf/gf/encoding/gbinary"
+	"github.com/AmarsDing/lib/os/ytime"
+	"github.com/gogf/gf/encoding/ybinary"
 )
 
 type (
@@ -206,31 +206,31 @@ func Convert(any interface{}, t string, params ...interface{}) interface{} {
 		}
 		return &v
 
-	case "GTime", "gtime.Time":
+	case "ytime", "ytime.Time":
 		if len(params) > 0 {
-			if v := GTime(any, String(params[0])); v != nil {
+			if v := ytime(any, String(params[0])); v != nil {
 				return *v
 			} else {
-				return *gtime.New()
+				return *ytime.New()
 			}
 		}
-		if v := GTime(any); v != nil {
+		if v := ytime(any); v != nil {
 			return *v
 		} else {
-			return *gtime.New()
+			return *ytime.New()
 		}
-	case "*gtime.Time":
+	case "*ytime.Time":
 		if len(params) > 0 {
-			if v := GTime(any, String(params[0])); v != nil {
+			if v := ytime(any, String(params[0])); v != nil {
 				return v
 			} else {
-				return gtime.New()
+				return ytime.New()
 			}
 		}
-		if v := GTime(any); v != nil {
+		if v := ytime(any); v != nil {
 			return v
 		} else {
-			return gtime.New()
+			return ytime.New()
 		}
 
 	case "Duration", "time.Duration":
@@ -317,7 +317,7 @@ func Bytes(any interface{}) []byte {
 				return bytes
 			}
 		}
-		return gbinary.Encode(any)
+		return ybinary.Encode(any)
 	}
 }
 
@@ -384,12 +384,12 @@ func String(any interface{}) string {
 			return ""
 		}
 		return value.String()
-	case gtime.Time:
+	case ytime.Time:
 		if value.IsZero() {
 			return ""
 		}
 		return value.String()
-	case *gtime.Time:
+	case *ytime.Time:
 		if value == nil {
 			return ""
 		}
@@ -565,7 +565,7 @@ func Int64(any interface{}) int64 {
 		}
 		return 0
 	case []byte:
-		return gbinary.DecodeToInt64(value)
+		return ybinary.DecodeToInt64(value)
 	default:
 		if f, ok := value.(apiInt64); ok {
 			return f.Int64()
@@ -690,7 +690,7 @@ func Uint64(any interface{}) uint64 {
 		}
 		return 0
 	case []byte:
-		return gbinary.DecodeToUint64(value)
+		return ybinary.DecodeToUint64(value)
 	default:
 		if f, ok := value.(apiUint64); ok {
 			return f.Uint64()
@@ -728,7 +728,7 @@ func Float32(any interface{}) float32 {
 	case float64:
 		return float32(value)
 	case []byte:
-		return gbinary.DecodeToFloat32(value)
+		return ybinary.DecodeToFloat32(value)
 	default:
 		if f, ok := value.(apiFloat32); ok {
 			return f.Float32()
@@ -749,7 +749,7 @@ func Float64(any interface{}) float64 {
 	case float64:
 		return value
 	case []byte:
-		return gbinary.DecodeToFloat64(value)
+		return ybinary.DecodeToFloat64(value)
 	default:
 		if f, ok := value.(apiFloat64); ok {
 			return f.Float64()

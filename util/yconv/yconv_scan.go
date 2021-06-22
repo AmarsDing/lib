@@ -9,7 +9,7 @@ package yconv
 import (
 	"reflect"
 
-	"github.com/AmarsDing/lib/errors/gerror"
+	"github.com/AmarsDing/lib/errors/yerror"
 )
 
 // Scan automatically calls MapToMap, MapToMaps, Struct or Structs function according to
@@ -24,7 +24,7 @@ func Scan(params interface{}, pointer interface{}, mapping ...map[string]string)
 		pointerKind = pointerType.Kind()
 	)
 	if pointerKind != reflect.Ptr {
-		return gerror.Newf("params should be type of pointer, but got: %v", pointerKind)
+		return yerror.Newf("params should be type of pointer, but got: %v", pointerKind)
 	}
 	var (
 		pointerElem     = pointerType.Elem()
@@ -60,7 +60,7 @@ func ScanDeep(params interface{}, pointer interface{}, mapping ...map[string]str
 	t := reflect.TypeOf(pointer)
 	k := t.Kind()
 	if k != reflect.Ptr {
-		return gerror.Newf("params should be type of pointer, but got: %v", k)
+		return yerror.Newf("params should be type of pointer, but got: %v", k)
 	}
 	switch t.Elem().Kind() {
 	case reflect.Array, reflect.Slice:

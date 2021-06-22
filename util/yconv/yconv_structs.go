@@ -9,7 +9,7 @@ package yconv
 import (
 	"reflect"
 
-	"github.com/AmarsDing/lib/errors/gerror"
+	"github.com/AmarsDing/lib/errors/yerror"
 	"github.com/AmarsDing/lib/internal/json"
 )
 
@@ -52,7 +52,7 @@ func doStructs(params interface{}, pointer interface{}, mapping map[string]strin
 		return nil
 	}
 	if pointer == nil {
-		return gerror.New("object pointer cannot be nil")
+		return yerror.New("object pointer cannot be nil")
 	}
 
 	if doStructsByDirectReflectSet(params, pointer) {
@@ -65,7 +65,7 @@ func doStructs(params interface{}, pointer interface{}, mapping map[string]strin
 			if e, ok := exception.(errorStack); ok {
 				err = e
 			} else {
-				err = gerror.NewSkipf(1, "%v", exception)
+				err = yerror.NewSkipf(1, "%v", exception)
 			}
 		}
 	}()
@@ -97,7 +97,7 @@ func doStructs(params interface{}, pointer interface{}, mapping map[string]strin
 	if !ok {
 		pointerRv = reflect.ValueOf(pointer)
 		if kind := pointerRv.Kind(); kind != reflect.Ptr {
-			return gerror.Newf("pointer should be type of pointer, but got: %v", kind)
+			return yerror.Newf("pointer should be type of pointer, but got: %v", kind)
 		}
 	}
 	// Converting `params` to map slice.

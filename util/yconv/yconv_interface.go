@@ -1,6 +1,6 @@
 package yconv
 
-import "github.com/AmarsDing/lib/os/gtime"
+import "github.com/AmarsDing/lib/os/ytime"
 
 // apiString is used for type assert api for String().
 type apiString interface {
@@ -89,7 +89,7 @@ type apiSet interface {
 	Set(value interface{}) (old interface{})
 }
 
-// apiGTime is the interface for gtime.Time converting.
-type apiGTime interface {
-	GTime(format ...string) *gtime.Time
+// apiytime is the interface for ytime.Time converting.
+type apiytime interface {
+	ytime(format ...string) *ytime.Time
 }
