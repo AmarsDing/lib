@@ -57,5 +57,5 @@ func GetBytesWithCache(path string, duration ...time.Duration) []byte {
 
 // cacheKey produces the cache key for ycache.
 func cacheKey(path string) string {
-	return "gf.gfile.cache:" + path
+	return "lib.yfile.cache:" + path
 }

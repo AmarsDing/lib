@@ -14,27 +14,27 @@ const (
 )
 
 var (
-	// isGFDebug marks whether printing GoFrame debug information.
-	isGFDebug = false
+	// islibDebug marks whether printing GoFrame debug information.
+	islibDebug = false
 )
 
 func init() {
-	isGFDebug = utils.IsDebugEnabled()
+	islibDebug = utils.IsDebugEnabled()
 }
 
 // SetEnabled enables/disables the internal logging manually.
 // Note that this function is not concurrent safe, be aware of the DATA RACE.
 func SetEnabled(enabled bool) {
-	// If they're the same, it does not write the `isGFDebug` but only reading operation.
-	if isGFDebug != enabled {
-		isGFDebug = enabled
+	// If they're the same, it does not write the `islibDebug` but only reading operation.
+	if islibDebug != enabled {
+		islibDebug = enabled
 	}
 }
 
 // Print prints `v` with newline using fmt.Println.
 // The parameter `v` can be multiple variables.
 func Print(v ...interface{}) {
-	if !isGFDebug {
+	if !islibDebug {
 		return
 	}
 	fmt.Println(append([]interface{}{now(), "[INTE]", file()}, v...)...)
@@ -43,7 +43,7 @@ func Print(v ...interface{}) {
 // Printf prints `v` with format `format` using fmt.Printf.
 // The parameter `v` can be multiple variables.
 func Printf(format string, v ...interface{}) {
-	if !isGFDebug {
+	if !islibDebug {
 		return
 	}
 	fmt.Printf(now()+" [INTE] "+file()+" "+format+"\n", v...)
@@ -52,7 +52,7 @@ func Printf(format string, v ...interface{}) {
 // Error prints `v` with newline using fmt.Println.
 // The parameter `v` can be multiple variables.
 func Error(v ...interface{}) {
-	if !isGFDebug {
+	if !islibDebug {
 		return
 	}
 	array := append([]interface{}{now(), "[INTE]", file()}, v...)
@@ -62,7 +62,7 @@ func Error(v ...interface{}) {
 
 // Errorf prints `v` with format `format` using fmt.Printf.
 func Errorf(format string, v ...interface{}) {
-	if !isGFDebug {
+	if !islibDebug {
 		return
 	}
 	fmt.Printf(

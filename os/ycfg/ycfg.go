@@ -16,10 +16,10 @@ type Config struct {
 }
 
 const (
-	DefaultName       = "config"             // DefaultName is the default group name for instance usage.
-	DefaultConfigFile = "config.toml"        // DefaultConfigFile is the default configuration file name.
-	cmdEnvKey         = "gf.gcfg"            // cmdEnvKey is the configuration key for command argument or environment.
-	errorPrintKey     = "gf.gcfg.errorprint" // errorPrintKey is used to specify the key controlling error printing to stdout.
+	DefaultName       = "config"              // DefaultName is the default group name for instance usage.
+	DefaultConfigFile = "config.toml"         // DefaultConfigFile is the default configuration file name.
+	cmdEnvKey         = "lib.ycfg"            // cmdEnvKey is the configuration key for command argument or environment.
+	errorPrintKey     = "lib.ycfg.errorprint" // errorPrintKey is used to specify the key controlling error printing to stdout.
 )
 
 var (

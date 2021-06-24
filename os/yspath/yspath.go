@@ -62,7 +62,7 @@ func New(path string, cache bool) *SPath {
 // Get creates and returns a instance of searching manager for given path.
 // The parameter `cache` specifies whether using cache feature for this manager.
 // If cache feature is enabled, it asynchronously and recursively scans the path
-// and updates all sub files/folders to the cache using package gfsnotify.
+// and updates all sub files/folders to the cache using package yfsnotify.
 func Get(root string, cache bool) *SPath {
 	if root == "" {
 		root = "/"

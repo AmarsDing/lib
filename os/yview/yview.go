@@ -3,12 +3,13 @@ package yview
 import (
 	"context"
 
+	"github.com/AmarsDing/lib"
 	"github.com/AmarsDing/lib/container/ymap"
 	"github.com/AmarsDing/lib/internal/intlog"
-	"github.com/gogf/gf"
 
 	"github.com/AmarsDing/lib/container/yarray"
 	"github.com/AmarsDing/lib/os/ycmd"
+	"github.com/AmarsDing/lib/os/yfile"
 	"github.com/AmarsDing/lib/os/ylog"
 )
 
@@ -62,7 +63,7 @@ func New(path ...string) *View {
 		}
 	} else {
 		// Customized dir path from env/cmd.
-		if envPath := ycmd.GetOptWithEnv("gf.gview.path").String(); envPath != "" {
+		if envPath := ycmd.GetOptWithEnv("lib.gview.path").String(); envPath != "" {
 			if yfile.Exists(envPath) {
 				if err := view.SetPath(envPath); err != nil {
 					intlog.Error(err)
@@ -93,8 +94,8 @@ func New(path ...string) *View {
 	}
 	view.SetDelimiters("{{", "}}")
 	// default build-in variables.
-	view.data["GF"] = map[string]interface{}{
-		"version": gf.VERSION,
+	view.data["lib"] = map[string]interface{}{
+		"version": lib.VERSION,
 	}
 	// default build-in functions.
 	view.BindFuncMap(FuncMap{

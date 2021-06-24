@@ -70,8 +70,8 @@ func GetWithEnv(key string, def ...interface{}) *yvar.Var {
 // It returns the default value <def> if none of them exists.
 //
 // Fetching Rules:
-// 1. Command line arguments are in lowercase format, eg: gf.<package name>.<variable name>;
-// 2. Environment arguments are in uppercase format, eg: GF_<package name>_<variable name>；
+// 1. Command line arguments are in lowercase format, eg: lib.<package name>.<variable name>;
+// 2. Environment arguments are in uppercase format, eg: lib_<package name>_<variable name>；
 func GetOptWithEnv(key string, def ...interface{}) *yvar.Var {
 	cmdKey := strings.ToLower(strings.Replace(key, "_", ".", -1))
 	if ContainsOpt(cmdKey) {

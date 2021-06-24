@@ -31,7 +31,7 @@ func init() {
 }
 
 // Info returns the basic built information of the binary as map.
-// Note that it should be used with gf-cli tool "gf build",
+// Note that it should be used with lib-cli tool "lib build",
 // which injects necessary information into the binary.
 func Info() map[string]string {
 	return map[string]string{

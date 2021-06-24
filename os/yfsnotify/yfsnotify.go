@@ -4,7 +4,7 @@
 // If a copy of the MIT was not distributed with this file,
 // You can obtain one at https://github.com/AmarsDing/lib.
 
-// Package gfsnotify provides a platform-independent interface for file system notifications.
+// Package yfsnotify provides a platform-independent interface for file system notifications.
 package yfsnotify
 
 import (

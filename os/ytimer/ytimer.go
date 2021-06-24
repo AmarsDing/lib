@@ -33,7 +33,7 @@ const (
 	panicExit            = "exit"        // panicExit is used for custom job exit with panic.
 	defaultTimes         = math.MaxInt32 // defaultTimes is the default limit running times, a big number.
 	defaultTimerInterval = 100           // defaultTimerInterval is the default timer interval in milliseconds.
-	cmdEnvKey            = "gf.gtimer"   // Configuration key for command argument or environment.
+	cmdEnvKey            = "lib.ytimer"  // Configuration key for command argument or environment.
 )
 
 var (

@@ -3,7 +3,7 @@ package structs
 import (
 	"reflect"
 
-	"github.com/gogf/gf/errors/gerror"
+	"github.com/AmarsDing/lib/errors/yerror"
 )
 
 // StructType retrieves and returns the struct Type of specified struct/*struct.
@@ -44,7 +44,7 @@ exitLoop:
 		reflectKind = reflectValue.Kind()
 	}
 	if reflectKind != reflect.Struct {
-		return nil, gerror.Newf(
+		return nil, yerror.Newf(
 			`invalid object kind "%s", kind of "struct" is required`,
 			reflectKind,
 		)

@@ -1,4 +1,4 @@
-// Package gregex provides high performance API for regular expression functionality.
+// Package yregex provides high performance API for regular expression functionality.
 package yregex
 
 import (

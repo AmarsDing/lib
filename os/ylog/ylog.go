@@ -19,7 +19,7 @@ var (
 )
 
 func init() {
-	defaultDebug = ycmd.GetOptWithEnv("gf.glog.debug", true).Bool()
+	defaultDebug = ycmd.GetOptWithEnv("lib.ylog.debug", true).Bool()
 	SetDebug(defaultDebug)
 }
 

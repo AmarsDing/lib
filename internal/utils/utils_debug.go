@@ -25,7 +25,7 @@ func init() {
 }
 
 // IsDebugEnabled checks and returns whether debug mode is enabled.
-// The debug mode is enabled when command argument "gf.debug" or environment "GF_DEBUG" is passed.
+// The debug mode is enabled when command argument "lib.debug" or environment "lib_DEBUG" is passed.
 func IsDebugEnabled() bool {
 	return isDebugEnabled
 }
