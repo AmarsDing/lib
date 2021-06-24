@@ -15,7 +15,7 @@ const (
 
 var (
 	// Default expire time for file content caching.
-	cacheExpire = ycmd.GetOptWithEnv("gf.gfile.cache", gDEFAULT_CACHE_EXPIRE).Duration()
+	cacheExpire = ycmd.GetOptWithEnv("lib.yfile.cache", gDEFAULT_CACHE_EXPIRE).Duration()
 
 	// internalCache is the memory cache for internal usage.
 	internalCache = ycache.New()

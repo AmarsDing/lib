@@ -1,7 +1,7 @@
 package yfile
 
 import (
-	"github.com/gogf/gf/text/ystr"
+	"github.com/AmarsDing/lib/text/ystr"
 )
 
 // ReplaceFile replaces content for file <path>.

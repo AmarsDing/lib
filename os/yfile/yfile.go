@@ -1,15 +1,15 @@
-package gfile
+package yfile
 
 import (
-	"github.com/gogf/gf/text/gstr"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
 
-	"github.com/gogf/gf/container/gtype"
-	"github.com/gogf/gf/util/gconv"
+	"github.com/AmarsDing/lib/container/ytype"
+	"github.com/AmarsDing/lib/text/ystr"
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 var (
@@ -26,7 +26,7 @@ var (
 
 	// The absolute file path for main package.
 	// It can be only checked and set once.
-	mainPkgPath = gtype.NewString()
+	mainPkgPath = ytype.NewString()
 
 	// selfPath is the current running binary path.
 	// As it is most commonly used, it is so defined as an internal package variable.
@@ -112,7 +112,7 @@ func Join(paths ...string) string {
 		if s != "" {
 			s += Separator
 		}
-		s += gstr.TrimRight(path, Separator)
+		s += ystr.TrimRight(path, Separator)
 	}
 	return s
 }
@@ -248,7 +248,7 @@ func IsWritable(path string) bool {
 	result := true
 	if IsDir(path) {
 		// If it's a directory, create a temporary file to test whether it's writable.
-		tmpFile := strings.TrimRight(path, Separator) + Separator + gconv.String(time.Now().UnixNano())
+		tmpFile := strings.TrimRight(path, Separator) + Separator + yconv.String(time.Now().UnixNano())
 		if f, err := Create(tmpFile); err != nil || !Exists(tmpFile) {
 			result = false
 		} else {
