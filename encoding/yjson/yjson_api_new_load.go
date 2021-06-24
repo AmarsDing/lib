@@ -1,6 +1,3 @@
-
-// You can obtain one at https://github.com/AmarsDing/gf.
-
 package yjson
 
 import (

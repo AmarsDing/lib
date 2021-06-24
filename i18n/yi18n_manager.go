@@ -77,7 +77,7 @@ func DefaultOptions() Options {
 	)
 	if realPath != "" {
 		path = realPath
-		// To avoid of the source path of GF: github.com/gogf/i18n/gi18n
+
 		if yfile.Exists(path + yfile.Separator + "gi18n") {
 			path = ""
 		}
