@@ -16,6 +16,7 @@ github.com/gogf/gf v1.16.2/go.mod h1:5eEgE9fWeRQW8dJE3GLpCy0KkNitXh6POesdJiBE/lw
 github.com/gogf/gf v1.16.3 h1:zz4qBRPchiyzLq3EH0rzVb1SBkax418ifC+4ABI6Ylc=
 github.com/gogf/gf v1.16.4 h1:1Y8/P1UMp9BmrtUn0wAg3g6ElRAO0R9QHCdUNt9Z5L4=
 github.com/gogf/gf v1.16.4/go.mod h1:EjnxZXddTwfFoLPofDE3NokFWx+immofINtSyFCj280=
+github.com/gogf/mysql v1.6.1-0.20210603073548-16164ae25579 h1:pP/uEy52biKDytlgK/ug8kiYPAiYu6KajKVUHfGrtyw=
 github.com/gogf/mysql v1.6.1-0.20210603073548-16164ae25579/go.mod h1:52e6mXyNnHAsFrXrSnj5JPRSKsZKpHylVtA3j4AtMz8=
 github.com/golang/glog v0.0.0-20210429001901-424d2337a529 h1:2voWjNECnrZRbfwXxHB1/j8wa6xdKn85B5NzgVL/pTU=
 github.com/golang/glog v0.0.0-20210429001901-424d2337a529/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
