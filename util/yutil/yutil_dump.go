@@ -1,13 +1,13 @@
-
-package gutil
+package yutil
 
 import (
 	"bytes"
 	"fmt"
-	"github.com/AmarsDing/lib/internal/json"
-	"github.com/AmarsDing/lib/util/yconv"
 	"os"
 	"reflect"
+
+	"github.com/AmarsDing/lib/internal/json"
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // apiVal is used for type assert api for Val().

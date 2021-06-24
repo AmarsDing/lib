@@ -1,9 +1,9 @@
-
 package yutil
 
 import (
-	"github.com/AmarsDing/lib/internal/utils"
 	"reflect"
+
+	"github.com/AmarsDing/lib/internal/utils"
 )
 
 // MapCopy does a shallow copy from map `data` to `copy` for most commonly used map type

@@ -6,7 +6,6 @@ import (
 	"github.com/AmarsDing/lib/internal/structs"
 	"github.com/AmarsDing/lib/util/yconv"
 	"github.com/AmarsDing/lib/util/yutil"
-	"github.com/gogf/gf/util/gutil"
 )
 
 // CheckStruct validates struct and returns the error result.
@@ -150,7 +149,7 @@ func (v *Validator) doCheckStruct(object interface{}) Error {
 				inputParamMap[name] = field.Value.Interface()
 			} else {
 				if name != fieldName {
-					if foundKey, foundValue := gutil.MapPossibleItemByKey(inputParamMap, fieldName); foundKey != "" {
+					if foundKey, foundValue := yutil.MapPossibleItemByKey(inputParamMap, fieldName); foundKey != "" {
 						inputParamMap[name] = foundValue
 					}
 				}

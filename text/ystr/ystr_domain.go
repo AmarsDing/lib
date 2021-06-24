@@ -1,5 +1,3 @@
-
-
 package ystr
 
 import "strings"

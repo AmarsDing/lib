@@ -1,5 +1,3 @@
-
-
 package yvalid
 
 import (
@@ -10,11 +8,11 @@ import (
 
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/util/yconv"
-	gutil "github.com/AmarsDing/lib/util/yutil"
 	"github.com/gogf/gf/net/gipv4"
 	"github.com/gogf/gf/net/gipv6"
 	"github.com/gogf/gf/os/gtime"
 	"github.com/gogf/gf/text/gregex"
+	"github.com/gogf/gf/util/gutil"
 )
 
 type apiTime interface {

@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"math"
+	"sort"
+
 	"github.com/AmarsDing/lib/internal/empty"
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/text/ystr"
-	"math"
-	"sort"
 
 	"github.com/AmarsDing/lib/internal/rwmutex"
 	"github.com/AmarsDing/lib/util/yconv"
