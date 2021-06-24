@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"sync/atomic"
 
-	"github.com/AmarsDing/util/yconv"
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Bool is a struct for concurrent-safe operation for type bool.

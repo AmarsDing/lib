@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/AmarsDing/lib/debug/gdebug"
+	"github.com/AmarsDing/lib/debug/ydebug"
 	"github.com/AmarsDing/lib/internal/utils"
 )
 
@@ -56,7 +56,7 @@ func Error(v ...interface{}) {
 		return
 	}
 	array := append([]interface{}{now(), "[INTE]", file()}, v...)
-	array = append(array, "\n"+gdebug.StackWithFilter(stackFilterKey))
+	array = append(array, "\n"+ydebug.StackWithFilter(stackFilterKey))
 	fmt.Println(array...)
 }
 
@@ -67,7 +67,7 @@ func Errorf(format string, v ...interface{}) {
 	}
 	fmt.Printf(
 		now()+" [INTE] "+file()+" "+format+"\n%s\n",
-		append(v, gdebug.StackWithFilter(stackFilterKey))...,
+		append(v, ydebug.StackWithFilter(stackFilterKey))...,
 	)
 }
 
@@ -78,6 +78,6 @@ func now() string {
 
 // file returns caller file name along with its line number.
 func file() string {
-	_, p, l := gdebug.CallerWithFilter(stackFilterKey)
+	_, p, l := ydebug.CallerWithFilter(stackFilterKey)
 	return fmt.Sprintf(`%s:%d`, filepath.Base(p), l)
 }

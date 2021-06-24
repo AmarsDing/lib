@@ -11,6 +11,8 @@ import (
 
 	"github.com/AmarsDing/lib/container/ytype"
 	"github.com/AmarsDing/lib/internal/intlog"
+	"github.com/AmarsDing/lib/os/yfile"
+	"github.com/AmarsDing/lib/os/yfpool"
 	"github.com/AmarsDing/lib/os/ymlock"
 	"github.com/AmarsDing/lib/os/ytimer"
 	"go.opentelemetry.io/otel/trace"

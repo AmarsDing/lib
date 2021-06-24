@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"sync/atomic"
 
-	"github.com/AmarsDing/util/yconv"
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Uint32 is a struct for concurrent-safe operation for type uint32.

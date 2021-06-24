@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/AmarsDing/lib/encoding/ybinary"
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/os/ytime"
-	"github.com/gogf/gf/encoding/ybinary"
 )
 
 type (

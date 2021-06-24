@@ -17,7 +17,6 @@ import (
 	"github.com/AmarsDing/lib/container/yset"
 	"github.com/AmarsDing/lib/internal/intlog"
 
-	"github.com/AmarsDing/lib/container/ylist"
 	"github.com/AmarsDing/lib/container/ymap"
 	"github.com/AmarsDing/lib/container/yqueue"
 	"github.com/AmarsDing/lib/container/ytype"

@@ -1,10 +1,4 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
-// Package gcrc32 provides useful API for CRC32 encryption algorithms.
+// Package ycrc32 provides useful API for CRC32 encryption algorithms.
 package ycrc32
 
 import (

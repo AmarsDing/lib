@@ -8,6 +8,8 @@
 package ymeta
 
 import (
+	"github.com/AmarsDing/lib/container/ymap"
+	"github.com/AmarsDing/lib/container/yvar"
 	"github.com/AmarsDing/lib/internal/structs"
 )
 

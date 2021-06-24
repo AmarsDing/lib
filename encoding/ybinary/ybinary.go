@@ -1,4 +1,3 @@
-
 // Note that package gbinary encodes the data using LittleEndian in default.
 package ybinary
 

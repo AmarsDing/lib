@@ -1,9 +1,10 @@
 package ytype
 
 import (
-	"github.com/AmarsDing/util/yconv"
 	"strconv"
 	"sync/atomic"
+
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Uint is a struct for concurrent-safe operation for type uint.

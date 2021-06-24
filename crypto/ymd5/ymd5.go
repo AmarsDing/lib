@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/AmarsDing/util/util/yconv"
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Encrypt encrypts any type of variable using MD5 algorithms.

@@ -1,4 +1,3 @@
-
 // Package gyaml provides accessing and converting for YAML content.
 package yyaml
 

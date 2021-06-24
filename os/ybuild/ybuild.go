@@ -3,12 +3,12 @@ package ybuild
 import (
 	"runtime"
 
+	"github.com/AmarsDing/lib"
 	"github.com/AmarsDing/lib/container/yvar"
 	"github.com/AmarsDing/lib/encoding/ybase64"
 	"github.com/AmarsDing/lib/internal/intlog"
 	"github.com/AmarsDing/lib/internal/json"
 	"github.com/AmarsDing/lib/util/yconv"
-	"github.com/gogf/gf"
 )
 
 var (
@@ -22,7 +22,7 @@ func init() {
 		if err != nil {
 			intlog.Error(err)
 		}
-		builtInVarMap["gfVersion"] = gf.VERSION
+		builtInVarMap["libVersion"] = lib.VERSION
 		builtInVarMap["goVersion"] = runtime.Version()
 		intlog.Printf("build variables: %+v", builtInVarMap)
 	} else {
@@ -35,7 +35,7 @@ func init() {
 // which injects necessary information into the binary.
 func Info() map[string]string {
 	return map[string]string{
-		"gf":   GetString("gfVersion"),
+		"lib":  GetString("libVersion"),
 		"go":   GetString("goVersion"),
 		"git":  GetString("builtGit"),
 		"time": GetString("builtTime"),

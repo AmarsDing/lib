@@ -1,4 +1,4 @@
-package gsession
+package ysession
 
 import (
 	"time"

@@ -1,6 +1,6 @@
 package ylog
 
-import "github.com/AmarsDing/container/ymap"
+import "github.com/AmarsDing/lib/container/ymap"
 
 const (
 	// Default group name for instance usage.

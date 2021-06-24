@@ -1,16 +1,11 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
 package ycompress
 
 import (
 	"bytes"
 	"compress/gzip"
-	"github.com/gogf/gf/os/gfile"
 	"io"
+
+	"github.com/AmarsDing/lib/os/yfile"
 )
 
 // Gzip compresses <data> using gzip algorithm.
@@ -47,12 +42,12 @@ func GzipFile(src, dst string, level ...int) error {
 		writer *gzip.Writer
 		err    error
 	)
-	srcFile, err := gfile.Open(src)
+	srcFile, err := yfile.Open(src)
 	if err != nil {
 		return err
 	}
 	defer srcFile.Close()
-	dstFile, err := gfile.Create(dst)
+	dstFile, err := yfile.Create(dst)
 	if err != nil {
 		return err
 	}
@@ -93,12 +88,12 @@ func UnGzip(data []byte) ([]byte, error) {
 
 // UnGzip decompresses file <src> to <dst> using gzip algorithm.
 func UnGzipFile(src, dst string) error {
-	srcFile, err := gfile.Open(src)
+	srcFile, err := yfile.Open(src)
 	if err != nil {
 		return err
 	}
 	defer srcFile.Close()
-	dstFile, err := gfile.Create(dst)
+	dstFile, err := yfile.Create(dst)
 	if err != nil {
 		return err
 	}

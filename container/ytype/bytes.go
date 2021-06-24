@@ -3,8 +3,9 @@ package ytype
 import (
 	"bytes"
 	"encoding/base64"
-	"github.com/AmarsDing/util/yconv"
 	"sync/atomic"
+
+	"github.com/AmarsDing/lib/util/yconv"
 )
 
 // Bytes is a struct for concurrent-safe operation for type []byte.

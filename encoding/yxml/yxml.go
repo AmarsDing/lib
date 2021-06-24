@@ -1,14 +1,12 @@
-
-
 // Package gxml provides accessing and converting for XML content.
 package yxml
 
 import (
 	"strings"
 
+	"github.com/AmarsDing/lib/encoding/ycharset"
+	"github.com/AmarsDing/lib/text/yregex"
 	"github.com/clbanning/mxj"
-	"github.com/AmardDing/lib/encoding/ycharset"
-	"github.com/AmardDing/lib/text/yregex"
 )
 
 // Decode parses <content> into and returns as map.

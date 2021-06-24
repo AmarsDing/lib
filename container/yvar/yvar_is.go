@@ -3,7 +3,7 @@ package yvar
 import (
 	"reflect"
 
-	"github.com/AmarsDing/internal/empty"
+	"github.com/AmarsDing/lib/internal/empty"
 )
 
 // IsNil checks whether <v> is nil.

@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/AmarsDing/lib/internal/utils"
 	"io"
 	"runtime"
 	"strings"
+
+	"github.com/AmarsDing/lib/internal/utils"
 )
 
 // Error is custom error for additional features.

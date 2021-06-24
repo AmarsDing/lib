@@ -1,8 +1,9 @@
 package structs
 
 import (
-	"github.com/AmarsDing/lib/errors/yerror"
 	"reflect"
+
+	"github.com/gogf/gf/errors/gerror"
 )
 
 // StructType retrieves and returns the struct Type of specified struct/*struct.
