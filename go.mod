@@ -10,7 +10,7 @@ require (
 	github.com/golang/glog v0.0.0-20210429001901-424d2337a529
 	github.com/grokify/html-strip-tags-go v0.0.0-20190921062105-daaa06bf1aaf
 	go.opentelemetry.io/otel v0.19.0
-	go.opentelemetry.io/otel/oteltest v0.19.0
+	go.opentelemetry.io/otel/oteltest v0.19.0 // indirect
 	go.opentelemetry.io/otel/trace v0.19.0
 	golang.org/x/text v0.3.6
 	golang.org/x/tools/gopls v0.7.0 // indirect
