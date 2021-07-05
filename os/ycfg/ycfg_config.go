@@ -23,7 +23,7 @@ import (
 // New returns a new configuration management object.
 // The parameter `file` specifies the default configuration file name for reading.
 func New(file ...string) *Config {
-	name := DefaultConfigfile
+	name := DefaultConfigFile
 	if len(file) > 0 {
 		name = file[0]
 	} else {

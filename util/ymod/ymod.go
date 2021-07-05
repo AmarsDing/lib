@@ -21,7 +21,7 @@ const (
 	TESTING   = "testing"
 	STAGING   = "staging"
 	PRODUCT   = "product"
-	cmdEnvKey = "gf.gmode"
+	cmdEnvKey = "lib.ymode"
 )
 
 var (

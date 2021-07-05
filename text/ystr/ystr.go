@@ -383,6 +383,7 @@ func CountChars(str string, noSpace ...bool) map[string]int {
 
 // WordWrap wraps a string to a given number of characters.
 // TODO: Enable cut parameter, see http://php.net/manual/en/function.wordwrap.php.
+// 观测报文  转报机截断  // 将一段超长字符串str，按长度width截断，不能截断单词，新生成的截断字符串的结尾是br
 func WordWrap(str string, width int, br string) string {
 	if br == "" {
 		br = "\n"
