@@ -1,9 +1,14 @@
+// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
+//
+// This Source Code Form is subject to the terms of the MIT License.
+// If a copy of the MIT was not distributed with this file,
+// You can obtain one at https://github.com/gogf/gf.
+
 package structs
 
 import (
+	"github.com/gogf/gf/errors/gerror"
 	"reflect"
-
-	"github.com/AmarsDing/lib/errors/yerror"
 )
 
 // StructType retrieves and returns the struct Type of specified struct/*struct.
@@ -44,7 +49,7 @@ exitLoop:
 		reflectKind = reflectValue.Kind()
 	}
 	if reflectKind != reflect.Struct {
-		return nil, yerror.Newf(
+		return nil, gerror.Newf(
 			`invalid object kind "%s", kind of "struct" is required`,
 			reflectKind,
 		)

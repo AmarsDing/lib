@@ -1,4 +1,4 @@
-package lib
+package gf
 
-const VERSION = "v1.0.0"
-const AUTHORS = "amarsding<315150726@qq.com>"
+const VERSION = "v1.16.0"
+const AUTHORS = "john<john@goframe.org>"

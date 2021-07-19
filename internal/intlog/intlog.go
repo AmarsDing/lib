@@ -1,12 +1,18 @@
+// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
+//
+// This Source Code Form is subject to the terms of the MIT License.
+// If a copy of the MIT was not distributed with this file,
+// You can obtain one at https://github.com/gogf/gf.
+
+// Package intlog provides internal logging for GoFrame development usage only.
 package intlog
 
 import (
 	"fmt"
+	"github.com/gogf/gf/debug/gdebug"
+	"github.com/gogf/gf/internal/utils"
 	"path/filepath"
 	"time"
-
-	"github.com/AmarsDing/lib/debug/ydebug"
-	"github.com/AmarsDing/lib/internal/utils"
 )
 
 const (
@@ -14,27 +20,27 @@ const (
 )
 
 var (
-	// islibDebug marks whether printing GoFrame debug information.
-	islibDebug = false
+	// isGFDebug marks whether printing GoFrame debug information.
+	isGFDebug = false
 )
 
 func init() {
-	islibDebug = utils.IsDebugEnabled()
+	isGFDebug = utils.IsDebugEnabled()
 }
 
 // SetEnabled enables/disables the internal logging manually.
 // Note that this function is not concurrent safe, be aware of the DATA RACE.
 func SetEnabled(enabled bool) {
-	// If they're the same, it does not write the `islibDebug` but only reading operation.
-	if islibDebug != enabled {
-		islibDebug = enabled
+	// If they're the same, it does not write the `isGFDebug` but only reading operation.
+	if isGFDebug != enabled {
+		isGFDebug = enabled
 	}
 }
 
 // Print prints `v` with newline using fmt.Println.
 // The parameter `v` can be multiple variables.
 func Print(v ...interface{}) {
-	if !islibDebug {
+	if !isGFDebug {
 		return
 	}
 	fmt.Println(append([]interface{}{now(), "[INTE]", file()}, v...)...)
@@ -43,7 +49,7 @@ func Print(v ...interface{}) {
 // Printf prints `v` with format `format` using fmt.Printf.
 // The parameter `v` can be multiple variables.
 func Printf(format string, v ...interface{}) {
-	if !islibDebug {
+	if !isGFDebug {
 		return
 	}
 	fmt.Printf(now()+" [INTE] "+file()+" "+format+"\n", v...)
@@ -52,22 +58,22 @@ func Printf(format string, v ...interface{}) {
 // Error prints `v` with newline using fmt.Println.
 // The parameter `v` can be multiple variables.
 func Error(v ...interface{}) {
-	if !islibDebug {
+	if !isGFDebug {
 		return
 	}
 	array := append([]interface{}{now(), "[INTE]", file()}, v...)
-	array = append(array, "\n"+ydebug.StackWithFilter(stackFilterKey))
+	array = append(array, "\n"+gdebug.StackWithFilter(stackFilterKey))
 	fmt.Println(array...)
 }
 
 // Errorf prints `v` with format `format` using fmt.Printf.
 func Errorf(format string, v ...interface{}) {
-	if !islibDebug {
+	if !isGFDebug {
 		return
 	}
 	fmt.Printf(
 		now()+" [INTE] "+file()+" "+format+"\n%s\n",
-		append(v, ydebug.StackWithFilter(stackFilterKey))...,
+		append(v, gdebug.StackWithFilter(stackFilterKey))...,
 	)
 }
 
@@ -78,6 +84,6 @@ func now() string {
 
 // file returns caller file name along with its line number.
 func file() string {
-	_, p, l := ydebug.CallerWithFilter(stackFilterKey)
+	_, p, l := gdebug.CallerWithFilter(stackFilterKey)
 	return fmt.Sprintf(`%s:%d`, filepath.Base(p), l)
 }
